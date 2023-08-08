@@ -1,18 +1,16 @@
 let yourYear = 1998;
-let yourMonth = 9;
+let yourMonth = 6;
 let yourDay = 19;
 
 
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
 const currentDay = new Date().getDate();
-
-
+const currentDayOfWeek = new Date().getDay() + 1;
 let yearDays = 365;
 
 let totalDays = (currentYear - yourYear) * 365;
 let totalCurrentYearDays = 0;
-console.log(totalDays);
 
 
 const dayOfYear = (month, day) => {
@@ -66,13 +64,34 @@ let leapYearsComp = Math.floor(currentYear / 4);
 let leapYearDays = leapYearsComp - leapYearsUser;
 totalDays = totalDays + leapYearDays;
 
+
+let dayCalc = (cDOW, uD) => {
+    let daysMU = (uD % 7) + 1;
+    let day = '';
+    console.log(daysMU)
+    if (daysMU === 3) {
+        day = 'Saturday';
+    } else if (daysMU === 4) {
+        day = 'Friday';
+    } else if (daysMU === 5) {
+        day = 'Thursday';
+    } else if (daysMU === 6) {
+        day = 'Wednesday';
+    } else if (daysMU === 7) {
+        day = 'Tuesday';
+    } else if (daysMU === 1) {
+        day = 'Monday';
+    } else if (daysMU === 2) {
+        day = 'Sunday';
+    }
+    return day;
+}
+
 console.log(currentYear);
 console.log(currentMonth);
 console.log(currentDay);
-
+console.log(currentDayOfWeek);
+currentDayOfWeek
 console.log(totalDays);
-console.log(dayOfYear(yourMonth, yourDay));
-console.log(currentAmountOfDays);
-console.log(leapYearsUser);
-console.log(leapYearsComp);
-console.log(leapYearDays);
+
+console.log(dayCalc(currentDayOfWeek, totalDays));
