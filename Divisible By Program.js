@@ -1,7 +1,7 @@
-const total = 13500000;
+const total = 4260000;
 const maxWorkers = 500;
 const iterations = 0;
-const place = 'tens';
+const place = 'ones';
 
 
 const divisibleBy = (to, mw, pl) => {
