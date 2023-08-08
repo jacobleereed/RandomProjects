@@ -1,17 +1,78 @@
 let yourYear = 1998;
-let yourMonth = 1998;
-let yourDay = 1998;
+let yourMonth = 9;
+let yourDay = 19;
 
 
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
 const currentDay = new Date().getDate();
+
+
 let yearDays = 365;
 
-let totalDays = 0;
+let totalDays = (currentYear - yourYear) * 365;
+let totalCurrentYearDays = 0;
+console.log(totalDays);
 
 
+const dayOfYear = (month, day) => {
+    let totalCurrentYearDays = 0;
+    switch (month) {
+        case 1:
+            totalCurrentYearDays = day;
+            break;
+        case 2:
+            totalCurrentYearDays = 31 + day;
+            break;
+        case 3:
+            totalCurrentYearDays = 59 + day;
+            break;
+        case 4:
+            totalCurrentYearDays = 90 + day;
+            break;
+        case 5:
+            totalCurrentYearDays = 120 + day;
+            break;
+        case 6:
+            totalCurrentYearDays = 151 + day;
+            break;
+        case 7:
+            totalCurrentYearDays = 181 + day;
+            break;
+        case 8:
+            totalCurrentYearDays = 212 + day;
+            break;
+        case 9:
+            totalCurrentYearDays = 243 + day;
+            break;
+        case 10:
+            totalCurrentYearDays = 273 + day;
+            break;
+        case 11:
+            totalCurrentYearDays = 304 + day;
+            break;
+        case 12:
+            totalCurrentYearDays = 335 + day;
+            break;
+    }
+    return totalCurrentYearDays;
+}
+
+let currentAmountOfDays = dayOfYear(currentMonth, currentDay) - dayOfYear(yourMonth, yourDay);
+totalDays = totalDays + currentAmountOfDays;
+
+let leapYearsUser = Math.floor(yourYear / 4);
+let leapYearsComp = Math.floor(currentYear / 4);
+let leapYearDays = leapYearsComp - leapYearsUser;
+totalDays = totalDays + leapYearDays;
 
 console.log(currentYear);
 console.log(currentMonth);
 console.log(currentDay);
+
+console.log(totalDays);
+console.log(dayOfYear(yourMonth, yourDay));
+console.log(currentAmountOfDays);
+console.log(leapYearsUser);
+console.log(leapYearsComp);
+console.log(leapYearDays);
