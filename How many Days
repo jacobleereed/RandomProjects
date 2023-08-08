@@ -1,7 +1,6 @@
-let yourYear = 1968;
-let yourMonth = 12;
-let yourDay = 17;
-
+let yourYear = 1957;
+let yourMonth = 10;
+let yourDay = 25;
 
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth() + 1;
@@ -50,7 +49,7 @@ const dayOfYear = (month, day) => {
             totalCurrentYearDays = 304 + day;
             break;
         case 12:
-            totalCurrentYearDays = 335 + day;
+            totalCurrentYearDays = 334 + day;
             break;
     }
     return totalCurrentYearDays;
@@ -66,8 +65,10 @@ totalDays = totalDays + leapYearDays;
 
 
 let dayCalc = (cDOW, uD) => {
-    let daysMU = ((uD - currentDayOfWeek) % 7);
+    let daysMU = ((totalDays - currentDayOfWeek) % 7);
     let day = '';
+
+    console.log(daysMU)
     if (daysMU === 0) {
         day = 'Saturday';
     } else if (daysMU === 1) {
@@ -87,7 +88,7 @@ let dayCalc = (cDOW, uD) => {
 }
 
 let dayOfWeek = dayCalc(currentDayOfWeek, totalDays);
-
+console.log(leapYearDays)
 console.log(`You were born ${totalDays} days ago on a ${dayOfWeek}`);
 
 
