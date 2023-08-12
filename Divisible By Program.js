@@ -1,4 +1,4 @@
-const total = 4260000;
+const total = 14250000;
 const maxWorkers = 500;
 const iterations = 0;
 const place = 'ones';
